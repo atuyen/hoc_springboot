@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HocRoute2 {
     @Value("${test}")
     private  String test;
-    //Muc co ban nhat ===> api localhost:8080/v1/
+    //Muc co ban nhat ===> api localhost:8080/api/v1/
     @RequestMapping("/")
     String home() {
 
@@ -18,7 +18,7 @@ public class HocRoute2 {
         return "Muc co ban nhat cua v1";
     }
 
-    //Muc co ban nhat ===> api localhost:8080/v1/simple
+    //Muc co ban nhat ===> api localhost:8080/api/v1/simple
     @RequestMapping("/simple")
     String simple() {
         return "Muc simple cua v1 "+test;
