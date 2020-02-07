@@ -13,8 +13,6 @@ public class HocRoute2 {
     //Muc co ban nhat ===> api localhost:8080/api/v1/
     @RequestMapping("/")
     String home() {
-
-
         return "Muc co ban nhat cua v1";
     }
 
