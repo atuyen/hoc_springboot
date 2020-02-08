@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -24,7 +23,51 @@ test {
 }
 
 
-bootJar {
-	mainClassName = 'com.example.learning.LearningApplication'
+
+
+jar {
+	archiveBaseName = "gs-spring-boot"
+	archiveVersion = "0.1.0"
 }
+
+bootRun {
+	systemProperties = System.properties
+	main = "com.prepaird.Application"
+}
+
+task copyDeliverables(dependsOn: 'build') {
+	doLast {
+		mkdir('build/tmp/deliverable')
+		copy {
+			from 'build/libs'
+			into 'build/tmp/deliverable'
+			include '*.jar'
+		}
+		copy {
+			from 'config'
+			into 'build/tmp/deliverable/config'
+			include '**/*'
+		}
+		copy {
+			from 'files'
+			into 'build/tmp/deliverable/files'
+			exclude 'generated-files'
+			include '**/*'
+		}
+	}
+}
+
+task dist(type: Zip, dependsOn: 'copyDeliverables') {
+	archiveName "${project.jar.baseName}-${project.jar.version}.zip"
+	from 'build/tmp/deliverable'
+	include '**/*'
+}
+
+
+
+
+
+
+
+
 
