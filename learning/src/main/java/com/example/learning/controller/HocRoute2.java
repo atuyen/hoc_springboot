@@ -10,15 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class HocRoute2 {
     @Value("${test}")
     private  String test;
+
+    @Value("${db.url}")
+    private  String url;
+
+
     //Muc co ban nhat ===> api localhost:8080/api/v1/
     @RequestMapping("/")
     String home() {
-        return "Muc co ban nhat cua v1";
+        return "Muc co ban nhat cua v1"+url;
     }
 
     //Muc co ban nhat ===> api localhost:8080/api/v1/simple
     @RequestMapping("/simple")
     String simple() {
-        return "Muc simple cua v1 "+test;
+        return "Muc simple cua v1 ";
     }
 }

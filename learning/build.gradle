@@ -23,6 +23,7 @@ test {
 	useJUnitPlatform()
 }
 
+
 bootJar {
 	mainClassName = 'com.example.learning.LearningApplication'
 }
