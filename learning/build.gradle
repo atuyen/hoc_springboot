@@ -13,6 +13,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-jdbc')
+	implementation('org.postgresql:postgresql')
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -32,7 +35,7 @@ jar {
 
 bootRun {
 	systemProperties = System.properties
-	main = "com.prepaird.Application"
+	main = "com.example.learning.LearningApplication"
 }
 
 task copyDeliverables(dependsOn: 'build') {

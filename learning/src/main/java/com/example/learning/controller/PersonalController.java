@@ -1,36 +1,10 @@
 package com.example.learning.controller;
 
 
+import com.example.learning.entity.Personal;
+import com.example.learning.web.support.DefaultResponseWrapper;
 import org.springframework.web.bind.annotation.*;
 
-
-class Personal{
-    String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Personal(String name, String id) {
-        this.name = name;
-        this.id = id;
-    }
-
-    String id;
-
-}
 
 @RestController
 @RequestMapping(path = "/personal")
@@ -55,15 +29,12 @@ public class PersonalController {
     //  "name": "tuyen"
     // }
     @PostMapping(path = "/add-personal/{authorId}")
-    Personal addPersonal(@RequestBody Personal personal,
-                         @RequestParam(name = "comment",required = false) String comment){
+    DefaultResponseWrapper<Personal> addPersonal(@RequestBody Personal personal,
+                                       @RequestParam(name = "comment",required = false) String comment){
         personal.setName(personal.getName()+ " "+comment);
-        return personal;
+        return new DefaultResponseWrapper<Personal>(personal);
 
     }
-
-
-
 
 
 }
