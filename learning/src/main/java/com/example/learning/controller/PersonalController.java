@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class PersonalController {
 
 
-    //===>url = localhost:8081/personal/get-by-id/18?fullName=nguyentuyen&age=30&name=tuyen
+    //===>url = localhost:8080/personal/get-by-id/18?fullName=nguyentuyen&age=30&name=tuyen
     @GetMapping(path = "/get-by-id/{id}")
     Personal getPersonal(@PathVariable String id,
                          @RequestParam String name,
