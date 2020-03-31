@@ -25,5 +25,29 @@ public class TestHibernateController {
         return  accountDao.getAccountByUserName(userName);
     }
 
+    @GetMapping(path = "/accounts/{id}")
+    Account getAccount(@PathVariable long id){
+        return  accountDao.getAccountById();
+    }
+
+    @PostMapping(path = "/accounts")
+    Account createAccount(){
+        return  accountDao.addNewAccount();
+    }
+
+
+    @PutMapping(path = "/accounts")
+    Account updateAccount(){
+        return  accountDao.updateAccount();
+    }
+
+    @DeleteMapping(path = "/accounts")
+    void deleteAccount(){
+        accountDao.deleteAccount();
+
+    }
+
+
+
 
 }

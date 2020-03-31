@@ -68,7 +68,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/random").access("hasRole('ROLE_ADMIN')")
                 /// Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
-                .anyRequest().authenticated(); // Tất cả các request khác đều cần phải xác thực mới được truy cập
+//                .anyRequest().authenticated(); //Tất cả các request khác đều cần phải xác thực mới được truy cập
+                  .anyRequest().permitAll();
 
 //        // Thêm một lớp Filter kiểm tra jwt
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
